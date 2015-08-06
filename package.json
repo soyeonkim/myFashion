@@ -1,0 +1,9 @@
+{
+  "name": "Skymedic",
+  "version": "0.0.1",
+  "description" : " As simple user interface application using backbone",
+  "dependencies": {
+    "express":"~3.1.0",
+    "path": "~0.4.9"
+  }
+}

@@ -1,0 +1,77 @@
+
+.button-bar {
+    width: 100%;
+    height: 3em;
+    display: box;
+    display: -webkit-box;
+    display: -moz-box;
+
+    -webkit-box-sizing: border-box;
+
+    background: #1f1f1f;
+    -webkit-box-shadow: 0px 5px 8px -1px #000000;
+    box-shadow: 0px 5px 8px -1px #000000;
+}
+
+.button {
+    position: relative;
+    display:box;
+    display:-moz-box; /* Firefox */
+    display:-webkit-box; /* Safari and Chrome */
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    -moz-box-pack: center;
+    -moz-box-align: center;
+    box-pack: center;
+    box-align: center;
+    text-align: center;
+    background-size: 100% 100%;
+    width: 0; /*makes flex boxes size evenly*/
+    border: 1px solid #000000;
+    padding: 0.5em;
+    background: #d9d8d8;
+    background: -webkit-gradient(linear, left top, left bottom, from(#2c2c2c), color-stop(3%, #2c2c2c), color-stop(3%, #1b1b1b), color-stop(50%, #1b1b1b), to(#000));
+    background: -moz-linear-gradient(top, #f2f1f1, #f2f1f1 27%, #d9d8d8);
+}
+
+.button > .button-highlight {
+    display: none;
+}
+
+.button.active, .button:active {
+    -webkit-box-shadow: inset 0px 0px 10px 3px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0px 0px 10px 3px rgba(0, 0, 0, 0.5);
+    color: #ff9900;
+    text-shadow: -1px 1px 8px #ff9900, 1px -1px 8px #ff9900;
+}
+
+.button.active > h3, .button:active > h3 {
+    color: #ff9900;
+}
+
+.button.active > .button-highlight {
+    display: inline;
+}
+
+.button:active {
+    -webkit-box-shadow: inset 0px 0px 10px 3px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0px 0px 10px 3px rgba(0, 0, 0, 0.5);
+}
+
+.button-left {
+    border-right: 0px;
+}
+
+.button-right {
+    border-left: 0px;
+}
+
+.button-highlight {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 1px;
+    width: 100%;
+    background-color: #ff9900;
+    background: -webkit-gradient(linear, left top, right top, from(#111), color-stop(25%, #111), color-stop(50%, #ff9900), color-stop(75%, #111), to(#111));
+}

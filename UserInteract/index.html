@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<title>UserInteract</title>
+    <meta name="description" content=""/>
+    <meta name='viewport' content='initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui' />
+    <!-- [endif]-->
+    
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-title" content="Soyeon">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<!-- styles -->
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/app.css" />
+	<link rel="stylesheet" href="css/button.css" />
+	<link rel="stylesheet" href="css/fashion.css" />
+	<link rel="stylesheet" href="css/dashboard.css" />
+</head> 
+
+<body>
+	<div id="mainbody" class="accelerateHardware">
+
+		<div id="appArea" class="top-right">
+
+			<div id="dashView"></div>
+
+			<div id="appView">
+				<div id="appHeader" class="header-bar horizontal-box">
+                    <p id="headerTitle" class="flex text-center">Interface</p>
+				    <div id="dashBtn" class="header-button"></div>
+				</div>
+				<div id="subviewContainer">
+				</div>
+			</div>
+
+		</div>
+		<div id="splashScreen" class="">
+			<div id="splashContent" class="horizontal-box padded-cell-h">
+			</div>
+		</div>
+
+	</div>
+
+<!-- ---------------------JAVASCRIPT INCUDES--------------------------- -->
+
+<!-- external libs -->
+
+<script type="text/javascript" src="lib/jquery.js"></script>
+<script type="text/javascript" src="lib/underscore.js"></script>
+<script type="text/javascript" src="lib/backbone.js"></script>
+<script type="text/javascript" src="lib/handlebars-1.0.rc.1.js"></script>
+
+
+<!-- project includes -->
+
+<!-- router -->
+<script type="text/javascript" src="app/router.js"></script>
+
+<!-- utilities -->
+<script type="text/javascript" src="app/platform.js"></script>
+
+<!-- models -->
+<script type="text/javascript" src="app/models/fashionmodel.js"></script>
+    
+<!-- collection -->
+<script type="text/javascript" src="app/collection/catalogmodel.js"></script>>
+
+<!-- views -->
+<script type="text/javascript" src="app/views/dashview.js"></script>
+<script type="text/javascript" src="app/views/fashionview.js"></script>
+<script type="text/javascript" src="app/views/fashiongridview.js"></script>
+
+<!-- main apps -->
+<script type="text/javascript" src="app/main.js"></script>
+
+<!-- script for preloading all images not required in splash-->
+<script language="javascript">
+	// create object
+	imageObj = new Image();
+
+	// set image list
+	images = new Array();
+
+	// start preloading
+	for(var ii=0; ii<images.length; ++ii) {
+		imageObj.src=images[ii];
+	}
+</script>
+
+<!-- ---------------------TEMPLATES INCUDES--------------------------- -->
+
+
+<script id="dashTemplate" type="text/x-handlebars-template">
+	<div id="dashContainer" class="vertical-box">
+		<div id="dashTitle" class="horizontal-box">
+			<div id="dashMenuBtn" class="header-button"></div>
+			<p id="dashTitleText" class="flex highlight">User Interface</p>
+		</div>
+		<div id="dashArea" class="flex vertical-box box-centered">
+			<div id="lesfashions" class="animated-dash">
+				<img id="lesfashionsPosterBottom" src="gfx/dashboard/southKorea3.jpg" />
+				<img id="lesfashionsPosterMiddle" src="gfx/dashboard/southKorea2.jpg" />
+				<img id="lesfashionsPosterTop" src="gfx/dashboard/southKorea1.jpg" />
+			</div>	
+		</div>
+	</div>
+</script>
+
+<script id="fashionTemplate" type="text/x-handlebars-template">
+	<div id="tabBar" class="horizontal-box padded-cell button-bar">
+		<div id="newArriveWomenTab" class="tab flex button button-left active">
+			<div class="button-highlight"></div>
+			<h3><b>Women</b></h3>
+		</div>
+		<div id="newArriveMenTab" class="tab flex button button-middle">
+			<div class="button-highlight"></div>
+			<h3><b>Men</b></h3>
+		</div>
+		<div id="newArriveChildrenTab" class="tab flex button button-right">
+			<div class="button-highlight"></div>		
+            <h3><b>Children</b></h3>
+		</div>
+	</div>
+
+	<div id="tileArea" class="scrollable-area">
+	</div>
+</script>
+
+
+<script id="loadingTemplate" type="text/x-handlebars-template">
+	<div class="grid-message panel">
+		<p class="text-center">LOADING...</p>
+	</div>
+</script>
+
+<script id="failedTemplate" type="text/x-handlebars-template">
+	<div class="grid-message panel">
+		<p class="text-center">LOADING FAILED</p>
+	</div>
+</script>
+
+<script id="fashionTileTemplate" type="text/x-handlebars-template">
+	<div id="{{id}}" class="fashion-tile tile not-loaded">
+		<div id="titlecover{{id}}" class="fashion-tile-banner padded-cell-h">
+			<h3 class="fashion-title text-center">{{name}}</h3>
+		</div>
+		<img src="gfx/fashion/glow.png" class="tile-glow" />
+	</div>
+</script>
+
+<script id="fashionGridTemplate" type="text/x-handlebars-template">
+	{{#unless movies}}
+		<p class="text-center">LOAD ERROR</p>
+	{{/unless}}
+</script>
+
+</body>
+</html>
