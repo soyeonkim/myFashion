@@ -1,7 +1,7 @@
-Skymedic 
+myFashion
 ===========
 
-Skymedic HTML5 client for Web using the simple user experience.
+myFashion HTML5 client for Web using the simple user experience.
 
 
 Design
